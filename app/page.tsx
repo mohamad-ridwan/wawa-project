@@ -1,113 +1,195 @@
-import Image from "next/image";
+'use client'
+
+import { Button, Carousel, Typography } from "@material-tailwind/react";
+import Container from "./templates/container";
+import Link from "next/link";
+import Section from "./templates/section";
+import { ProuductT } from "./templates/types/products";
+import Product from "./templates/product";
+
+type ImgT = {
+  img: string
+  path: string
+}
+
+type BannerT = {
+  banners: ImgT[]
+}
+
+type AllProductsT = {
+  products: ProuductT[]
+}
+
+function Banner({
+  banners
+}: BannerT) {
+  return (
+    <section>
+      <Carousel
+        className="mt-4"
+        loop
+        autoplay
+        transition={
+          { type: "tween", duration: 0.5 }
+        }
+      >
+        {banners.map((item, i) => (
+          <Link key={i} href={item.path}>
+            <img
+              src={item.img}
+              className="max-h-[400px]"
+            />
+          </Link>
+        ))}
+      </Carousel>
+    </section>
+  )
+}
+
+function AllProducts({
+  products
+}: AllProductsT) {
+  return (
+    <Section
+      title="All Products"
+    >
+      <div className="grid grid-cols-4 gap-8">
+        {products.map((item, i) => (
+          <Link key={i} href={item.path}>
+            <Product
+              name={item.name}
+              img={item.img}
+              discount={item.discount}
+              price={item.price}
+            />
+          </Link>
+        ))}
+      </div>
+
+      <div className="border-t flex w-full justify-center mb-12 mt-8 py-4">
+        <Button
+          variant="outlined"
+          className="rounded-none hover:bg-black hover:text-white text-[#343a40]"
+          size="md"
+        >
+          <Typography
+            className="font-avant-garde text-[0.85rem]"
+          >
+            VIEW ALL
+          </Typography>
+        </Button>
+      </div>
+    </Section>
+  )
+}
 
 export default function Home() {
+
+  const banners: ImgT[] = [
+    {
+      img: 'https://img.shoppegram.com/themes/Mk69actaKfIACTADlz9OcdBN5xEwJOBocZMjerSU.png',
+      path: '/categories/skincare'
+    },
+    {
+      img: 'https://img.shoppegram.com/themes/zBMjXpYJmRG6XADW8m47u4u4ZyjSFQCGYfCcZuR8.png',
+      path: '/categories/cosmetics'
+    }
+  ]
+
+  const products: ProuductT[] = [
+    {
+      name: 'COMBO SKINCARE PACK (PERFECT SKIN SET)',
+      img: 'https://img.shoppegram.com/skincare_2_a7ysm4m1jaejayfc6moe_540x.png',
+      discount: 'MYR127.00',
+      price: 'MYR119.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA BEAUTY ESSENCE REJUVENATING',
+      img: 'https://img.shoppegram.com/61027e18_3169_4663_9_mbbnf2xthkiygplyfdsb_540x.webp',
+      discount: 'MYR29.00',
+      price: 'MYR25.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA LOOSE POWDER',
+      img: 'https://img.shoppegram.com/580f189f_6eb4_41be_a_f4aqgwy7sdzooapdjjel_540x.jpg',
+      discount: 'MYR45.00',
+      price: 'MYR35.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA x ROZYANA Lagenda Cinta (EDP)',
+      img: 'https://img.shoppegram.com/photo_2023_11_11_14_dpevpnm6zcdton0ffiph_540x.jpeg',
+      discount: 'MYR19.90',
+      price: 'MYR15.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA SCARVES ASTANA EDITION',
+      img: 'https://img.shoppegram.com/photo_2024_01_31_12_5dljhhors3r9miup4to3_540x.jpeg',
+      discount: 'MYR30.00',
+      price: 'MYR28.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA TINTED SUNSCREEN',
+      img: 'https://img.shoppegram.com/dahlia_qtrstrmwhln68dzlntz3_540x.jpeg',
+      discount: 'MYR40.00',
+      price: 'MYR37.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA ICONIC LIPSTICK',
+      img: 'https://img.shoppegram.com/photo_2023_11_27_11_huafdxoojcwviz3zflbg_540x.jpeg',
+      discount: 'MYR30.00',
+      price: 'MYR27.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA EDP FOR WOMAN',
+      img: 'https://img.shoppegram.com/photo_2024_01_02_10_91tryv17i6pfom6tpiim_540x.jpeg',
+      discount: 'MYR19.90',
+      price: 'MYR15.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA PORE PRIMER',
+      img: 'https://img.shoppegram.com/photo_2024_01_16_10_zdjudr1e4cvtnzcq0xpt_540x.jpeg',
+      discount: 'MYR40.00',
+      price: 'MYR35.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA SETTING SPRAY',
+      img: 'https://img.shoppegram.com/photo_2024_01_26_09_ocqanya8czeguau9aqvl_540x.jpeg',
+      discount: 'MYR40.00',
+      price: 'MYR37.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA x DAHLIA GLOW SKIN SET',
+      img: 'https://img.shoppegram.com/photo_2024_02_02_10_f69oabuxchmgbkcrpzmj_540x.jpeg',
+      discount: 'MYR31.00',
+      price: 'MYR27.00',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+    {
+      name: 'WAWA BUTTER LIP TINT',
+      img: 'https://img.shoppegram.com/photo_2024_03_15_12_6kafhfruzscxxz8vcmk4_540x.jpeg',
+      discount: 'MYR30.00',
+      price: 'MYR19.90',
+      path: 'https://wawacosmeticsofficial.com/products/combo-skincare-set'
+    },
+  ]
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Container>
+      <Banner
+        banners={banners}
+      />
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <AllProducts products={products} />
+    </Container>
   );
 }

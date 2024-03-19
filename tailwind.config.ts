@@ -1,20 +1,21 @@
-import type { Config } from "tailwindcss";
+import type {Config} from 'tailwindcss'
 
-const config: Config = {
+const withMT = require("@material-tailwind/react/utils/withMT")
+
+const config: Config = withMT({
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    fontFamily: {
+      "avant-garde": 'Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif',
+      "apple-system": '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+      "montserrat": '"Montserrat","HelveticaNeue","Helvetica Neue",sans-serif'
+    }
   },
   plugins: [],
-};
-export default config;
+})
+
+export default config
