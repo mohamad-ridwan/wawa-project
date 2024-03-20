@@ -1,9 +1,9 @@
 'use client'
 
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { Typography } from "@material-tailwind/react";
 import Link from "next/link";
 import Container from "../container";
+import Iconify from "../Iconify";
 
 export default function Footer() {
     return (
@@ -16,7 +16,7 @@ export default function Footer() {
                     href="https://www.facebook.com/Wawa-Cosmetics-by-Wawa-Zainal-107461044721431"
                     className="mx-auto py-3"
                 >
-                    <Icon
+                    <Iconify
                         icon="basil:facebook-outline"
                         height={20}
                         width={20}

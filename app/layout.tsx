@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import TopBar from "./templates/navbar/TopBar";
-import Navbar from "./templates/navbar";
-import Footer from "./templates/footer";
+import TopBar from "./templates/default/navbar/TopBar";
+import Navbar from "./templates/default/navbar";
+import Footer from "./templates/default/footer";
 
 export const metadata: Metadata = {
   title: "Wawa Cosmetic Store",

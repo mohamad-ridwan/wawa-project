@@ -1,9 +1,10 @@
 'use client'
-import { Icon } from "@iconify/react/dist/iconify.js";
+
 import Container from "../container";
 import Link from "next/link";
 import { Accordion, AccordionBody, Typography } from "@material-tailwind/react";
 import { useState } from "react";
+import Iconify from "../Iconify";
 
 type ListMenu = {
     path: string
@@ -16,7 +17,7 @@ type PropsPageMenu = {
 }
 
 type MenuBtnT = {
-    handleOpen: ()=>void
+    handleOpen: () => void
 }
 
 function PageMenu({
@@ -57,12 +58,9 @@ function MenuBtn({
     handleOpen
 }: MenuBtnT) {
     return (
-        <Icon
+        <Iconify
             icon="heroicons-outline:menu"
-            className="cursor-pointer"
-            height={26}
-            width={26}
-            onClick={handleOpen}
+            click={handleOpen}
         />
     )
 }
@@ -70,15 +68,12 @@ function MenuBtn({
 function Cart() {
     return (
         <div className="relative">
-            <Icon
+            <Iconify
                 icon="uil:cart"
-                className="cursor-pointer"
-                height={26}
-                width={26}
             />
 
-            <div className="rounded-full flex justify-center items-center h-[1.2rem] w-[1.2rem] bg-black absolute right-[-7px] top-0">
-                <Typography className="text-white text-[0.7rem]">1</Typography>
+            <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
+                <Typography className="text-white text-[0.6rem]">1</Typography>
             </div>
         </div>
     )
@@ -113,7 +108,7 @@ export default function Navbar() {
     return (
         <Container>
             <div className="flex justify-between items-center py-[1.5rem]">
-                <MenuBtn handleOpen={handleOpen}/>
+                <MenuBtn handleOpen={handleOpen} />
 
                 <Logo />
 

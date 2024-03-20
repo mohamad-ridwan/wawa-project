@@ -1,11 +1,9 @@
+'use client'
+
+import { ProuductT } from "@/app/types/products";
 import { Card, Typography } from "@material-tailwind/react";
 
-type Props = {
-    img: string
-    name: string
-    discount: string
-    price: string
-}
+type Props = ProuductT
 
 export default function Product({
     img,
@@ -15,6 +13,9 @@ export default function Product({
 }: Props) {
     return (
         <Card
+            placeholder=""
+            onPointerEnterCapture=""
+            onPointerLeaveCapture=""
             color="white"
             shadow={false}
             className="cursor-pointer"
@@ -26,6 +27,9 @@ export default function Product({
             />
             <div className="text-center mt-4 hover:text-gray-800 transition-all text-black">
                 <Typography
+                    placeholder=""
+                    onPointerEnterCapture=""
+                    onPointerLeaveCapture=""
                     variant="h6"
                     className="font-apple-system"
                 >
@@ -33,11 +37,19 @@ export default function Product({
                 </Typography>
 
                 <div className="flex flex-wrap justify-center space-x-2">
+                    {discount &&
+                        <Typography
+                            placeholder=""
+                            onPointerEnterCapture=""
+                            onPointerLeaveCapture=""
+                            className="line-through font-apple-system font-normal">
+                            {discount}
+                        </Typography>
+                    }
                     <Typography
-                        className="line-through font-apple-system font-normal">
-                        {discount}
-                    </Typography>
-                    <Typography
+                        placeholder=""
+                        onPointerEnterCapture=""
+                        onPointerLeaveCapture=""
                         className="font-apple-system font-normal"
                     >
                         {price}
