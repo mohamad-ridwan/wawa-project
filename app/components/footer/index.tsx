@@ -24,11 +24,19 @@ export default function Footer() {
                 </Link>
                 <div className="flex flex-wrap mx-auto mb-4">
                     <Typography
+                        placeholder=""
+                        onPointerEnterCapture=""
+                        onPointerLeaveCapture=""
                         className="text-[0.8rem] font-apple-system font-normal text-center"
                     >
                         © 2024 Wawa Cosmetics Store. All rights reserved.
                     </Typography>
-                    <Typography className="flex text-[0.8rem] font-apple-system font-normal">
+                    <Typography
+                        placeholder=""
+                        onPointerEnterCapture=""
+                        onPointerLeaveCapture=""
+                        className="flex text-[0.8rem] font-apple-system font-normal"
+                    >
                         Powered by
                         <Link
                             href="https://shoppegram.com"

@@ -1,4 +1,4 @@
-import Container from "@/app/templates/default/container";
+import Container from "@/app/components/container";
 
 export default function ProductDetail(){
     return(

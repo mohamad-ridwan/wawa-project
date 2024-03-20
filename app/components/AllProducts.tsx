@@ -1,9 +1,9 @@
 'use client'
 
 import { ProuductT } from "@/app/types/products";
-import Section from "../../section";
+import Section from "./section";
 import Link from "next/link";
-import Product from "../../product";
+import Product from "./product";
 import { Button, Typography } from "@material-tailwind/react";
 
 export default function AllProducts() {

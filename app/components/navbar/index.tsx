@@ -1,6 +1,5 @@
 'use client'
 
-import Container from "../container";
 import Link from "next/link";
 import { Accordion, AccordionBody, Typography } from "@material-tailwind/react";
 import { useState } from "react";
@@ -26,13 +25,16 @@ function PageMenu({
 }: PropsPageMenu) {
     return (
         <Accordion
+            placeholder=""
+            onPointerEnterCapture=""
+            onPointerLeaveCapture=""
             open={open}
         >
             <AccordionBody>
-                <ul className="w-full py-2 flex flex-col justify-center border">
+                <ul className="wrap-nav-menu">
                     {listMenu.map((item, i) => {
-                        return <li key={i} className="flex justify-center">
-                            <Link href={item.path} className="text-center uppercase tracking-widest text-black text-[16px] py-2 font-apple-system font-semibold hover:text-gray-800 transition-all w-full">
+                        return <li key={i} className="nav-list">
+                            <Link href={item.path} className="nav-menu">
                                 {item.name}
                             </Link>
                         </li>
@@ -47,8 +49,8 @@ function Logo() {
     return (
         <Link href={"/"}>
             <img
-                src="https://img.shoppegram.com/themes/US4GeDJ8K1hDvXqepFQ2QVAHum8kNc5RgIDgFYJ6.jpg"
-                className="max-w-[200px]"
+                src="/logo.jpg"
+                className="logo"
             />
         </Link>
     )
@@ -73,7 +75,12 @@ function Cart() {
             />
 
             <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
-                <Typography className="text-white text-[0.6rem]">1</Typography>
+                <Typography
+                    className="text-white text-[0.6rem]"
+                    placeholder=""
+                    onPointerEnterCapture=""
+                    onPointerLeaveCapture=""
+                >1</Typography>
             </div>
         </div>
     )
@@ -106,19 +113,38 @@ export default function Navbar() {
     ]
 
     return (
-        <Container>
-            <div className="flex justify-between items-center py-[1.5rem]">
-                <MenuBtn handleOpen={handleOpen} />
+        <div className="wrap-navbar">
+            <div className="navbar-center">
+                {/* <div className="navbar">
+                    <MenuBtn handleOpen={handleOpen} />
 
-                <Logo />
+                    <Logo />
 
-                <Cart />
+                    <Cart />
+                </div>
+
+                <PageMenu
+                    open={open}
+                    listMenu={menu}
+                /> */}
+
+                <div className="navbar">
+                    <div className="flex items-center">
+                        <Logo />
+                        <ul className="wrap-nav-menu">
+                            {menu.map((item, i) => {
+                                return <li key={i} className="nav-list">
+                                    <Link href={item.path} className="nav-menu">
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            })}
+                        </ul>
+                    </div>
+
+                    <Cart />
+                </div>
             </div>
-
-            <PageMenu
-                open={open}
-                listMenu={menu}
-            />
-        </Container>
+        </div>
     )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { Carousel } from "@material-tailwind/react"
-import Iconify from "../../Iconify"
+import Iconify from "./Iconify"
 import Link from "next/link"
 
 type ImgT = {

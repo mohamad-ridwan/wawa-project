@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Container from "../templates/default/container";
-import Section from "../templates/default/section";
-import Product from "../templates/default/product";
+import Container from "../components/container";
+import Section from "../components/section";
+import Product from "../components/product";
 import { ProuductT } from "../types/products";
 
 export default function Products() {

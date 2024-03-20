@@ -1,0 +1,38 @@
+/* navbar */
+.wrap-navbar{
+    @apply flex justify-center w-screen;
+}
+
+.navbar-center{
+    @apply w-[960px] max-w-[960px];
+}
+
+.navbar{
+    @apply flex justify-between items-center py-[1.5rem];
+}
+
+.wrap-nav-menu{
+    @apply w-full py-2 flex flex-col justify-center border;
+}
+
+.nav-list{
+    @apply flex justify-center;
+}
+
+.nav-menu{
+    @apply text-center uppercase tracking-widest text-black text-[16px] py-2 font-apple-system font-semibold hover:text-gray-800 transition-all w-full;
+}
+
+/* container */
+.wrap-container{
+    @apply flex justify-center w-screen;
+}
+
+.container{
+    @apply w-[960px] max-w-[960px];
+}
+
+/* logo */
+.logo{
+    @apply max-w-[200px];
+}
