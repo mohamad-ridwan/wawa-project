@@ -1,89 +1,12 @@
 'use client'
 
-import Link from "next/link";
-import { Accordion, AccordionBody, Typography } from "@material-tailwind/react";
 import { useState } from "react";
-import Iconify from "../Iconify";
+import NavbarDefault from "@/app/templates/default/navbar";
+import NavbarTheme1 from "@/app/templates/theme1/navbar";
 
 type ListMenu = {
     path: string
     name: string
-}
-
-type PropsPageMenu = {
-    open: boolean
-    listMenu: ListMenu[]
-}
-
-type MenuBtnT = {
-    handleOpen: () => void
-}
-
-function PageMenu({
-    open,
-    listMenu
-}: PropsPageMenu) {
-    return (
-        <Accordion
-            placeholder=""
-            onPointerEnterCapture=""
-            onPointerLeaveCapture=""
-            open={open}
-        >
-            <AccordionBody>
-                <ul className="wrap-nav-menu">
-                    {listMenu.map((item, i) => {
-                        return <li key={i} className="nav-list">
-                            <Link href={item.path} className="nav-menu">
-                                {item.name}
-                            </Link>
-                        </li>
-                    })}
-                </ul>
-            </AccordionBody>
-        </Accordion>
-    )
-}
-
-function Logo() {
-    return (
-        <Link href={"/"}>
-            <img
-                src="/logo.jpg"
-                className="logo"
-            />
-        </Link>
-    )
-}
-
-function MenuBtn({
-    handleOpen
-}: MenuBtnT) {
-    return (
-        <Iconify
-            icon="heroicons-outline:menu"
-            click={handleOpen}
-        />
-    )
-}
-
-function Cart() {
-    return (
-        <div className="relative">
-            <Iconify
-                icon="uil:cart"
-            />
-
-            <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
-                <Typography
-                    className="text-white text-[0.6rem]"
-                    placeholder=""
-                    onPointerEnterCapture=""
-                    onPointerLeaveCapture=""
-                >1</Typography>
-            </div>
-        </div>
-    )
 }
 
 export default function Navbar() {
@@ -112,39 +35,26 @@ export default function Navbar() {
         },
     ]
 
+    const GET_CURRENT_TEMPLATE = (): '/templates/default' | '/templates/theme1' => {
+        return '/templates/theme1'
+    }
+
     return (
-        <div className="wrap-navbar">
-            <div className="navbar-center">
-                {/* <div className="navbar">
-                    <MenuBtn handleOpen={handleOpen} />
-
-                    <Logo />
-
-                    <Cart />
-                </div>
-
-                <PageMenu
-                    open={open}
+        <>
+            {GET_CURRENT_TEMPLATE() == '/templates/default' &&
+                <NavbarDefault
+                    handleOpen={handleOpen}
                     listMenu={menu}
-                /> */}
-
-                <div className="navbar">
-                    <div className="flex items-center">
-                        <Logo />
-                        <ul className="wrap-nav-menu">
-                            {menu.map((item, i) => {
-                                return <li key={i} className="nav-list">
-                                    <Link href={item.path} className="nav-menu">
-                                        {item.name}
-                                    </Link>
-                                </li>
-                            })}
-                        </ul>
-                    </div>
-
-                    <Cart />
-                </div>
-            </div>
-        </div>
+                    open={open}
+                />
+            }
+            {GET_CURRENT_TEMPLATE() == '/templates/theme1' &&
+                <NavbarTheme1
+                    handleOpen={handleOpen}
+                    listMenu={menu}
+                    open={open}
+                />
+            }
+        </>
     )
 }

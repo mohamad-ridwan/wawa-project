@@ -1,6 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    overflow-x: hidden;
+}
+
 /* navbar */
+.fixed-navbar{
+    @apply fixed transition-all top-0 left-0 right-0 z-[99999];
+}
+
 .wrap-navbar{
-    @apply flex justify-center w-screen sticky top-8 left-0 right-0 bg-[hsla(0,0%,96%,.5)] z-40 backdrop-blur-md;
+    @apply flex justify-center w-screen bg-[hsla(0,0%,96%,.5)] backdrop-blur-md px-4 md:px-8;
 }
 
 .navbar-center{
@@ -8,19 +20,24 @@
 }
 
 .navbar{
-    @apply flex justify-between items-center py-[0.5rem];
+    @apply flex justify-between items-center h-16;
 }
 
 .wrap-nav-menu{
-    @apply w-full py-2 flex gap-8;
+    @apply w-full gap-8 sm:flex hidden h-full;
 }
 
 .nav-list{
-    @apply flex;
+    @apply flex h-full;
 }
 
 .nav-menu{
-    @apply text-center text-[#737373] text-sm py-2 font-apple-system font-semibold hover:text-gray-700 transition-all w-full;
+    @apply text-center text-[#737373] h-full text-sm font-apple-system font-semibold hover:text-gray-700 transition-all w-full;
+}
+
+/* nav mobile */
+.wrap-nav-mobile{
+    @apply w-full flex flex-col;
 }
 
 /* container */

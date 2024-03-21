@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function TopBar(){
     return(
-        <div className="flex w-screen justify-center p-2 bg-[#bf0300]">
+        <div className="sm:flex hidden w-screen justify-center p-2 bg-[#bf0300]">
             <Link
                 href={'/caregories/cosmetics'}
                 className="text-[0.7rem] text-white font-apple-system font-[400] text-center"

@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body{
+    overflow-x: hidden;
+}
+
 /* navbar */
 .wrap-navbar{
     @apply flex justify-center w-screen;
