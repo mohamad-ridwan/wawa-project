@@ -22,7 +22,7 @@ function Logo() {
         <Link href={"/"}>
             <img
                 src="/logo.jpg"
-                className="logo"
+                className="max-w-[100px] mr-4"
             />
         </Link>
     )
@@ -65,7 +65,7 @@ export default function NavbarTheme1({
 }: PropsPageMenu &
     MenuBtnT
 ) {
-    const [fixedNavbar, setFixedNavbar] = useState<boolean>(false)
+    const [fixedNavbar, setFixedNavbar] = useState<boolean>(true)
 
     function scrollNavbar(e: Event): void {
         const currentScrollY = Math.floor(window.scrollY)
@@ -76,13 +76,13 @@ export default function NavbarTheme1({
         }
     }
 
-    useEffect(() => {
-        window.addEventListener('scroll', scrollNavbar)
+    // useEffect(() => {
+    //     window.addEventListener('scroll', scrollNavbar)
 
-        return () => {
-            removeEventListener('scroll', scrollNavbar, false)
-        }
-    }, [])
+    //     return () => {
+    //         removeEventListener('scroll', scrollNavbar, false)
+    //     }
+    // }, [])
 
     useEffect(() => {
         if (open) {
@@ -94,15 +94,15 @@ export default function NavbarTheme1({
 
     return (
         <>
-            <div className={`${fixedNavbar ? 'fixed-navbar' : ''} wrap-navbar`}>
-                <div className="navbar-center">
-                    <div className="navbar">
+            <div className={`${fixedNavbar ? 'fixed transition-all top-0 left-0 right-0 z-[99999]' : ''} flex justify-center w-screen bg-[hsla(0,0%,96%,.5)] backdrop-blur-md px-4 md:px-8`}>
+                <div className="w-[80rem] max-w-7xl px-8">
+                    <div className="flex justify-between items-center h-16">
                         <div className="flex items-center">
                             <Logo />
-                            <ul className="wrap-nav-menu">
+                            <ul className="w-full gap-8 sm:flex hidden h-full">
                                 {listMenu.map((item, i) => {
-                                    return <li key={i} className="nav-list">
-                                        <Link href={item.path} className="nav-menu">
+                                    return <li key={i} className="flex h-full">
+                                        <Link href={item.path} className="text-center text-[#737373] h-full text-sm font-inter font-medium hover:text-gray-900 transition-all w-full">
                                             {item.name}
                                         </Link>
                                     </li>
@@ -129,10 +129,10 @@ export default function NavbarTheme1({
                         open={open}
                     >
                         <AccordionBody>
-                            <ul className="wrap-nav-mobile px-4">
+                            <ul className="w-full flex flex-col px-4">
                                 {listMenu.map((item, i) => {
                                     return <li key={i} className="flex py-4 border-t">
-                                        <Link href={item.path} className="w-full flex">
+                                        <Link href={item.path} className="w-full flex font-inter font-medium">
                                             {item.name}
                                         </Link>
                                     </li>

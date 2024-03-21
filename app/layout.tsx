@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-// import "./globals.css";
+import "./globals.css";
 import TopBar from "./components/navbar/TopBar";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import ContextProvider from "./store/ContextProvider";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Wawa Cosmetic Store",
@@ -15,26 +16,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  // const GET_CURRENT_TEMPLATE = (): '/templates/default' | '/templates/theme1' => {
-  //   return '/templates/theme1'
-  // }
-
-  // useEffect(()=>{
-  //   GET_CURRENT_TEMPLATE()
-  // }, [])
-
   return (
     <html lang="en">
       <head>
-        {/* <link rel="stylesheet" href="./templates/default/style.css" /> */}
-        <link rel="stylesheet" href="./templates/theme1/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <TopBar />
-        <Navbar />
-        {children}
-        <Footer />
+        <ContextProvider>
+          <TopBar />
+          <Navbar />
+          {children}
+          <Footer />
+        </ContextProvider>
       </body>
     </html>
   );

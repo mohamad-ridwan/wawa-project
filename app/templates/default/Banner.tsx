@@ -1,7 +1,7 @@
 'use client'
 
 import { Carousel } from "@material-tailwind/react"
-import Iconify from "./Iconify"
+import Iconify from "../../components/Iconify"
 import Link from "next/link"
 
 type ImgT = {
@@ -9,18 +9,13 @@ type ImgT = {
     path: string
 }
 
-export default function Banner() {
-    const banners: ImgT[] = [
-        {
-            img: 'https://img.shoppegram.com/themes/Mk69actaKfIACTADlz9OcdBN5xEwJOBocZMjerSU.png',
-            path: '/categories/skincare'
-        },
-        {
-            img: 'https://img.shoppegram.com/themes/zBMjXpYJmRG6XADW8m47u4u4ZyjSFQCGYfCcZuR8.png',
-            path: '/categories/cosmetics'
-        }
-    ]
+type Props = {
+    banners: ImgT[]
+}
 
+export default function Banner({
+    banners
+}: Props) {
     return (
         <section>
             <Carousel

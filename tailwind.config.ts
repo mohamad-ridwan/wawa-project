@@ -13,7 +13,8 @@ const config: Config = withMT({
     fontFamily: {
       "avant-garde": 'Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif',
       "apple-system": '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
-      "montserrat": '"Montserrat","HelveticaNeue","Helvetica Neue",sans-serif'
+      "montserrat": '"Montserrat","HelveticaNeue","Helvetica Neue",sans-serif',
+      "inter": '"Inter", sans-serif'
     }
   },
   plugins: [],

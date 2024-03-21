@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NavbarDefault from "@/app/templates/default/navbar";
 import NavbarTheme1 from "@/app/templates/theme1/navbar";
+import { TemplateContext } from "@/app/store/template";
 
 type ListMenu = {
     path: string
@@ -11,6 +12,7 @@ type ListMenu = {
 
 export default function Navbar() {
     const [open, setOpen] = useState<boolean>(false)
+    const templateContext = useContext(TemplateContext)
 
     function handleOpen(): void {
         setOpen(!open)
@@ -34,21 +36,17 @@ export default function Navbar() {
             name: 'Soulmet'
         },
     ]
-
-    const GET_CURRENT_TEMPLATE = (): '/templates/default' | '/templates/theme1' => {
-        return '/templates/theme1'
-    }
-
+    
     return (
         <>
-            {GET_CURRENT_TEMPLATE() == '/templates/default' &&
+            {templateContext.templateName == 'default' &&
                 <NavbarDefault
                     handleOpen={handleOpen}
                     listMenu={menu}
                     open={open}
                 />
             }
-            {GET_CURRENT_TEMPLATE() == '/templates/theme1' &&
+            {templateContext.templateName == 'theme1' &&
                 <NavbarTheme1
                     handleOpen={handleOpen}
                     listMenu={menu}

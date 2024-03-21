@@ -32,7 +32,7 @@ function Logo() {
         <Link href={"/"}>
             <img
                 src="/logo.jpg"
-                className="logo"
+                className="max-w-[200px]"
             />
         </Link>
     )
@@ -69,10 +69,10 @@ function PageMenu({
             open={open}
         >
             <AccordionBody>
-                <ul className="wrap-nav-menu">
+                <ul className="w-full py-2 flex flex-col justify-center border">
                     {listMenu.map((item, i) => {
-                        return <li key={i} className="nav-list">
-                            <Link href={item.path} className="nav-menu">
+                        return <li key={i} className="flex justify-center">
+                            <Link href={item.path} className="text-center uppercase tracking-widest text-black text-[16px] py-2 font-apple-system font-semibold hover:text-gray-800 transition-all w-full">
                                 {item.name}
                             </Link>
                         </li>
@@ -89,9 +89,9 @@ export default function NavbarDefault({
     listMenu
 }: PropsPageMenu & MenuBtnT) {
     return (
-        <div className={`wrap-navbar`}>
-            <div className="navbar-center">
-                <div className="navbar">
+        <div className="flex justify-center w-screen">
+            <div className="w-[960px] max-w-[960px]">
+                <div className="flex justify-between items-center py-[1.5rem]">
                     <MenuBtn handleOpen={handleOpen} />
 
                     <Logo />

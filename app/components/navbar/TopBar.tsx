@@ -1,14 +1,17 @@
-import Link from "next/link";
+'use client'
+
+import { TemplateContext } from "@/app/store/template"
+import DefaultTopBar from "@/app/templates/default/navbar/DefaultTopBar"
+import { useContext } from "react"
 
 export default function TopBar(){
+    const templateContext = useContext(TemplateContext)
+
     return(
-        <div className="sm:flex hidden w-screen justify-center p-2 bg-[#bf0300]">
-            <Link
-                href={'/caregories/cosmetics'}
-                className="text-[0.7rem] text-white font-apple-system font-[400] text-center"
-            >
-                FREE SHIPPING FOR ORDER OVER RM130!
-            </Link>
-        </div>
+        <>
+            {templateContext.templateName == 'default' &&
+                <DefaultTopBar/>
+            }
+        </>
     )
 }

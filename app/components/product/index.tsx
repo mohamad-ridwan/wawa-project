@@ -1,7 +1,10 @@
 'use client'
 
+import { TemplateContext } from "@/app/store/template";
+import DefaultProduct from "@/app/templates/default/product";
+import ProductTheme1 from "@/app/templates/theme1/product";
 import { ProuductT } from "@/app/types/products";
-import { Card, Typography } from "@material-tailwind/react";
+import { useContext } from "react";
 
 type Props = ProuductT
 
@@ -11,51 +14,26 @@ export default function Product({
     discount,
     price
 }: Props) {
-    return (
-        <Card
-            placeholder=""
-            onPointerEnterCapture=""
-            onPointerLeaveCapture=""
-            color="white"
-            shadow={false}
-            className="cursor-pointer"
-        >
-            <img
-                src={img}
-                alt=""
-                className="max-w-full max-h-full"
-            />
-            <div className="text-center mt-4 hover:text-gray-800 transition-all text-black">
-                <Typography
-                    placeholder=""
-                    onPointerEnterCapture=""
-                    onPointerLeaveCapture=""
-                    variant="h6"
-                    className="font-apple-system"
-                >
-                    {name}
-                </Typography>
+    const templateContext = useContext(TemplateContext)
 
-                <div className="flex flex-wrap justify-center space-x-2">
-                    {discount &&
-                        <Typography
-                            placeholder=""
-                            onPointerEnterCapture=""
-                            onPointerLeaveCapture=""
-                            className="line-through font-apple-system font-normal">
-                            {discount}
-                        </Typography>
-                    }
-                    <Typography
-                        placeholder=""
-                        onPointerEnterCapture=""
-                        onPointerLeaveCapture=""
-                        className="font-apple-system font-normal"
-                    >
-                        {price}
-                    </Typography>
-                </div>
-            </div>
-        </Card>
+    return (
+        <>
+            {templateContext.templateName === 'default' &&
+                <DefaultProduct
+                    img={img}
+                    name={name}
+                    price={price}
+                    discount={discount}
+                />
+            }
+            {templateContext.templateName === 'theme1' &&
+                <ProductTheme1
+                    img={img}
+                    name={name}
+                    price={price}
+                    discount={discount}
+                />
+            }
+        </>
     )
 }

@@ -1,52 +1,128 @@
 'use client'
 
-import { Typography } from "@material-tailwind/react";
-import Link from "next/link";
+import { useContext } from "react";
 import Container from "../container";
-import Iconify from "../Iconify";
+import { FooterDataT } from "@/app/types/footer";
+import { TemplateContext } from "@/app/store/template";
+import DefaultFooter from "@/app/templates/default/footer";
+import FooterTheme1 from "@/app/templates/theme1/footer";
+
+type MenuFooterT = {
+    title: string
+    children: {
+        name: string
+        path: string
+    }[]
+}
+
+type CurrencyT = {
+    name: string
+    value: string
+}
 
 export default function Footer() {
-    return (
-        <Container>
-            <div className="flex flex-col justify-center w-full">
-                <div className="flex mx-auto w-[50px] h-[2px] bg-black mb-4">
+    const templateContext = useContext(TemplateContext)
 
-                </div>
-                <Link
-                    href="https://www.facebook.com/Wawa-Cosmetics-by-Wawa-Zainal-107461044721431"
-                    className="mx-auto py-3"
-                >
-                    <Iconify
-                        icon="basil:facebook-outline"
-                        height={20}
-                        width={20}
+    const footerData: FooterDataT = {
+        copyRight: '© 2024 Wawa Cosmetics Store. All rights reserved.',
+        poweredBy: 'Shoppegram',
+        poweredHref: 'https://shoppegram.com',
+        facebookHref: 'https://www.facebook.com/Wawa-Cosmetics-by-Wawa-Zainal-107461044721431'
+    }
+
+    // footer theme1 demo
+    const menuFooter: MenuFooterT[] = [
+        {
+            title: 'Saleor',
+            children: [
+                {
+                    name: 'About',
+                    path: '/'
+                },
+                {
+                    name: 'Documentation',
+                    path: '/'
+                }
+            ]
+        },
+        {
+            title: 'Collections',
+            children: [
+                {
+                    name: 'Featured Products',
+                    path: '/'
+                },
+                {
+                    name: 'Summer Picks',
+                    path: '/'
+                }
+            ]
+        },
+    ]
+    const currency: CurrencyT[] = [
+        {
+            name: 'AUD',
+            value: 'aud'
+        },
+        {
+            name: 'BRL',
+            value: 'brl'
+        },
+        {
+            name: 'CAD',
+            value: 'cad'
+        },
+        {
+            name: 'USD',
+            value: 'usd'
+        },
+        {
+            name: 'EUR',
+            value: 'eur'
+        },
+        {
+            name: 'GBP',
+            value: 'gbp'
+        },
+        {
+            name: 'INR',
+            value: 'inr'
+        },
+        {
+            name: 'JPY',
+            value: 'jpy'
+        },
+        {
+            name: 'PLN',
+            value: 'pln'
+        },
+        {
+            name: 'SAR',
+            value: 'sar'
+        },
+    ]
+
+    return (
+        <>
+            {templateContext.templateName === 'default' &&
+                <Container>
+                    <DefaultFooter
+                        copyRight={footerData.copyRight}
+                        facebookHref={footerData.facebookHref}
+                        poweredBy={footerData.poweredBy}
+                        poweredHref={footerData.poweredHref}
                     />
-                </Link>
-                <div className="flex flex-wrap mx-auto mb-4">
-                    <Typography
-                        placeholder=""
-                        onPointerEnterCapture=""
-                        onPointerLeaveCapture=""
-                        className="text-[0.8rem] font-apple-system font-normal text-center"
-                    >
-                        © 2024 Wawa Cosmetics Store. All rights reserved.
-                    </Typography>
-                    <Typography
-                        placeholder=""
-                        onPointerEnterCapture=""
-                        onPointerLeaveCapture=""
-                        className="flex text-[0.8rem] font-apple-system font-normal"
-                    >
-                        Powered by
-                        <Link
-                            href="https://shoppegram.com"
-                            className="transition-all hover:text-gray-800 ml-1 text-center"
-                        >
-                            Shoppegram
-                        </Link>
-                    </Typography>
-                </div>
-            </div>
-        </Container>
+                </Container>
+            }
+            {templateContext.templateName === 'theme1' &&
+                <FooterTheme1 
+                    menu={menuFooter}
+                    copyRight={footerData.copyRight}
+                    poweredBy={footerData.poweredBy}
+                    poweredHref={footerData.poweredHref}
+                    currencys={currency}
+                />
+            }
+        </>
     )
 }
