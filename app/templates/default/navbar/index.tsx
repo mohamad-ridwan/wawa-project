@@ -47,7 +47,7 @@ function Cart() {
 
             <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
                 <Typography
-                    className="text-white text-[0.6rem]"
+                    className="text-white text-[0.6rem] mb-0"
                     placeholder=""
                     onPointerEnterCapture=""
                     onPointerLeaveCapture=""

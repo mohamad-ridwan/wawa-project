@@ -1,5 +1,5 @@
 import Iconify from "@/app/components/Iconify"
-import { Accordion, AccordionBody, Typography } from "@material-tailwind/react"
+import { Accordion, AccordionBody, Input, Typography } from "@material-tailwind/react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -37,7 +37,7 @@ function Cart() {
 
             <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
                 <Typography
-                    className="text-white text-[0.6rem]"
+                    className="text-white text-[0.6rem] mb-0"
                     placeholder=""
                     onPointerEnterCapture=""
                     onPointerLeaveCapture=""
@@ -99,7 +99,7 @@ export default function NavbarTheme1({
                     <div className="flex justify-between items-center h-16">
                         <div className="flex items-center">
                             <Logo />
-                            <ul className="w-full gap-8 sm:flex hidden h-full">
+                            <ul className="w-full gap-8 sm:flex hidden h-full ml-0 mb-0">
                                 {listMenu.map((item, i) => {
                                     return <li key={i} className="flex h-full">
                                         <Link href={item.path} className="text-center text-[#737373] h-full text-sm font-inter font-medium hover:text-gray-900 transition-all w-full">
@@ -111,6 +111,25 @@ export default function NavbarTheme1({
                         </div>
 
                         <div className="flex items-center gap-4">
+                            <div className="lg:w-80 hidden lg:flex">
+                                <Input
+                                    onPointerEnterCapture=""
+                                    onPointerLeaveCapture=""
+                                    crossOrigin=""
+                                    type="text"
+                                    placeholder="Search for products..."
+                                    className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-[#737373] placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 font-inter font-normal"
+                                    labelProps={{className: 'hidden'}}
+                                    icon={
+                                        <Iconify
+                                            icon="iconamoon:search"
+                                            height={20}
+                                            width={20}
+                                            className="text-[#737373]"
+                                        />
+                                    }
+                                />
+                            </div>
                             <Cart />
                             <div className="sm:hidden flex">
                                 <MenuBtn handleOpen={handleOpen} />

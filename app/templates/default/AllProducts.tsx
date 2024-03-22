@@ -44,7 +44,7 @@ export default function AllProducts({
                             placeholder=""
                             onPointerEnterCapture=""
                             onPointerLeaveCapture=""
-                            className="font-avant-garde text-[0.85rem]"
+                            className="font-avant-garde text-[0.85rem] mb-0"
                         >
                             VIEW ALL
                         </Typography>

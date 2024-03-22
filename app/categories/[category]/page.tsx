@@ -1,18 +1,35 @@
 'use client'
 
-import Container from "../components/container";
-import { ProuductT } from "../types/products";
-import { useContext, useMemo, useState } from "react";
-import { TemplateContext } from "../store/template";
-import DefaultProductsLayout from "../templates/default/products-layout";
-import ProductsLayoutTheme1 from "../templates/theme1/products-layout";
-import { Button } from "@material-tailwind/react";
+import { useContext, useMemo } from "react";
+import Container from "@/app/components/container";
+import { TemplateContext } from "@/app/store/template";
+import DefaultCategory from "@/app/templates/default/category-layout";
+import { ProuductT } from "@/app/types/products";
+import { useParams } from "next/navigation";
+import CategoryTheme1 from "@/app/templates/theme1/category-layout";
 
-export default function Products() {
+type ParamsT = {
+    category: string
+}
+
+export default function Category() {
     const templateContext = useContext(TemplateContext)
 
-    // state theme1
-    const [page, setPage] = useState<number>(0)
+    const params = useParams()
+    const currentParams = params as ParamsT
+
+    const titleCategory = useMemo(() => {
+        if (currentParams?.category === 'cosmetics') {
+            return 'WAWA COSMETICS STORE'
+        } else if (currentParams?.category === 'skincare') {
+            return 'SKIN CARE'
+        } else if (currentParams?.category === 'soulmet') {
+            return 'SOULMET'
+        }
+        return ''
+    }, [
+        params
+    ])
 
     const products: ProuductT[] = [
         {
@@ -100,49 +117,19 @@ export default function Products() {
         },
     ]
 
-    // theme1 logic
-    const totalLoad: number = 6
-    const currentProductsLimit = useMemo((): ProuductT[]=>{
-        return products.slice(page, totalLoad)
-    }, [
-        page
-    ])
-
-    const isNextPage = useMemo(():boolean=>{
-        if((page + 1) < Math.floor(products.length / totalLoad)){
-            return true
-        }
-        return false
-    }, [page])
-
-    function nextPage():void{
-        if(isNextPage){
-            setPage(page + 1)
-        }
-    }
-
     return (
         <Container>
             {templateContext.templateName === 'default' &&
-                <DefaultProductsLayout products={products} />
+                <DefaultCategory
+                    products={products}
+                    title={titleCategory as string}
+                />
             }
             {templateContext.templateName === 'theme1' &&
-                <>
-                    <ProductsLayoutTheme1 products={currentProductsLimit} />
-                    <div className="flex justify-center pt-12 px-4">
-                        <Button
-                            placeholder=""
-                            onPointerEnterCapture=""
-                            onPointerLeaveCapture=""
-                            variant={isNextPage ? 'filled' : 'outlined'}
-                            onClick={nextPage}
-                            className="rounded-md shadow-none normal-case font-inter hover:opacity-[0.95] text-sm py-2 px-4 font-medium"
-                            disabled={!isNextPage}
-                        >
-                            Next page
-                        </Button>
-                    </div>
-                </>
+                <CategoryTheme1 
+                    products={products}
+                    title={titleCategory as string}
+                />
             }
         </Container>
     )

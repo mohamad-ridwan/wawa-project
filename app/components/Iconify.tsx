@@ -14,7 +14,7 @@ export default function Iconify({
     className = 'cursor-pointer',
     height = 26,
     width = 26,
-    color = 'black',
+    color,
     click
 }: Props) {
     return (

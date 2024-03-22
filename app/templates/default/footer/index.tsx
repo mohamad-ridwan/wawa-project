@@ -13,7 +13,7 @@ export default function DefaultFooter({
 }: Props) {
     return (
         <footer className="flex flex-col justify-center w-full">
-            <div className="flex mx-auto w-[50px] h-[2px] bg-black mb-4">
+            <div className="flex mx-auto w-[50px] h-[1.5px] bg-black mb-4">
 
             </div>
             <Link

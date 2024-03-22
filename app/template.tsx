@@ -19,9 +19,9 @@ export default function Template({children}: Props){
     }
 
     useEffect(()=>{
-        templateContext.setTemplateName('default')
+        templateContext.setTemplateName('theme1')
 
-        setBody('default')
+        setBody('theme1')
 
         window.scrollTo(0, 0)
     }, [])

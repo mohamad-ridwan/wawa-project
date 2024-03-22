@@ -28,14 +28,24 @@ export default function ProductTheme1({
                 />
             </div>
             <div className="flex justify-between space-x-2 text-[#171717] my-2">
-                <Typography
-                    placeholder=""
-                    onPointerEnterCapture=""
-                    onPointerLeaveCapture=""
-                    className="font-inter text-sm font-semibold"
-                >
-                    {name}
-                </Typography>
+                <div>
+                    <Typography
+                        placeholder=""
+                        onPointerEnterCapture=""
+                        onPointerLeaveCapture=""
+                        className="font-inter text-sm font-semibold mb-0"
+                    >
+                        {name}
+                    </Typography>
+                    <Typography
+                        placeholder=""
+                        onPointerEnterCapture=""
+                        onPointerLeaveCapture=""
+                        className="font-inter text-sm text-[#737373] font-normal mt-1"
+                    >
+                        Cosmetic
+                    </Typography>
+                </div>
 
                 <div className="flex justify-center space-x-1">
                     {discount &&
@@ -43,7 +53,7 @@ export default function ProductTheme1({
                             placeholder=""
                             onPointerEnterCapture=""
                             onPointerLeaveCapture=""
-                            className="line-through font-inter font-medium text-sm">
+                            className="line-through font-inter font-medium text-sm mb-0">
                             {discount}
                         </Typography>
                     }
@@ -51,7 +61,7 @@ export default function ProductTheme1({
                         placeholder=""
                         onPointerEnterCapture=""
                         onPointerLeaveCapture=""
-                        className="font-inter font-medium text-sm"
+                        className="font-inter font-medium text-sm mb-0"
                     >
                         {price}
                     </Typography>

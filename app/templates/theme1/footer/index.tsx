@@ -37,12 +37,12 @@ function FooterMenu({
                             onPointerEnterCapture=""
                             onPointerLeaveCapture=""
                             variant="h3"
-                            className="font-inter font-semibold text-sm"
+                            className="font-inter font-semibold text-sm mb-0"
                         >
                             {item.title}
                         </Typography>
 
-                        <ul className="flex flex-col space-y-4">
+                        <ul className="flex flex-col space-y-4 ml-0 mb-0 list-none">
                             {item.children.map((child, iChild) => (
                                 <li key={iChild} className="font-inter text-[#737373] font-normal text-sm">
                                     <Link href={child.path}>
@@ -103,7 +103,7 @@ export default function FooterTheme1({
                         placeholder=""
                         onPointerEnterCapture=""
                         onPointerLeaveCapture=""
-                        className="font-inter font-normal text-[#737373] text-sm"
+                        className="font-inter font-normal text-[#737373] text-sm mb-0"
                     >
                         Change currency:
                     </Typography>
