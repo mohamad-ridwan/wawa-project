@@ -31,9 +31,11 @@ function Logo() {
 function Cart() {
     return (
         <div className="relative">
-            <Iconify
-                icon="uil:cart"
-            />
+            <Link href="/cart">
+                <Iconify
+                    icon="uil:cart"
+                />
+            </Link>
 
             <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
                 <Typography
@@ -65,25 +67,6 @@ export default function NavbarTheme1({
 }: PropsPageMenu &
     MenuBtnT
 ) {
-    const [fixedNavbar, setFixedNavbar] = useState<boolean>(true)
-
-    function scrollNavbar(e: Event): void {
-        const currentScrollY = Math.floor(window.scrollY)
-        if (currentScrollY > 100) {
-            setFixedNavbar(true)
-        } else {
-            setFixedNavbar(false)
-        }
-    }
-
-    // useEffect(() => {
-    //     window.addEventListener('scroll', scrollNavbar)
-
-    //     return () => {
-    //         removeEventListener('scroll', scrollNavbar, false)
-    //     }
-    // }, [])
-
     useEffect(() => {
         if (open) {
             document.body.style.overflowY = 'hidden'
@@ -94,7 +77,7 @@ export default function NavbarTheme1({
 
     return (
         <>
-            <div className={`${fixedNavbar ? 'fixed transition-all top-0 left-0 right-0 z-[99999]' : ''} flex justify-center w-screen bg-[hsla(0,0%,96%,.5)] backdrop-blur-md px-4 md:px-8`}>
+            <div className={`fixed top-0 left-0 right-0 z-[99999] flex justify-center w-screen bg-[hsla(0,0%,96%,.5)] backdrop-blur-md px-4 md:px-8`}>
                 <div className="w-[80rem] max-w-7xl px-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex items-center">
@@ -119,7 +102,7 @@ export default function NavbarTheme1({
                                     type="text"
                                     placeholder="Search for products..."
                                     className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-[#737373] placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 font-inter font-normal"
-                                    labelProps={{className: 'hidden'}}
+                                    labelProps={{ className: 'hidden' }}
                                     icon={
                                         <Iconify
                                             icon="iconamoon:search"

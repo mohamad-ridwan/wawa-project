@@ -88,9 +88,8 @@ function ProductPreview({
             </div>
             <div className="grid grid-cols-5 gap-4">
                 {imgPreviews.map((item, i) => (
-                    <button>
+                    <button key={i}>
                         <img
-                            key={i}
                             src={item.img}
                             alt=""
                             className="align-middle max-w-full max-h-full"

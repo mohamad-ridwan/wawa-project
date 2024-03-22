@@ -7,12 +7,13 @@ type ListMenu = {
     name: string
 }
 
+type MenuBtnT = {
+    handleOpen: () => void
+}
+
 type PropsPageMenu = {
     open: boolean
     listMenu: ListMenu[]
-}
-
-type MenuBtnT = {
     handleOpen: () => void
 }
 
@@ -41,9 +42,11 @@ function Logo() {
 function Cart() {
     return (
         <div className="relative">
-            <Iconify
-                icon="uil:cart"
-            />
+            <Link href="/cart">
+                <Iconify
+                    icon="uil:cart"
+                />
+            </Link>
 
             <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
                 <Typography
@@ -59,7 +62,8 @@ function Cart() {
 
 function PageMenu({
     open,
-    listMenu
+    listMenu,
+    handleOpen
 }: PropsPageMenu) {
     return (
         <Accordion
@@ -71,7 +75,7 @@ function PageMenu({
             <AccordionBody>
                 <ul className="w-full py-2 flex flex-col justify-center border">
                     {listMenu.map((item, i) => {
-                        return <li key={i} className="flex justify-center">
+                        return <li key={i} className="flex justify-center" onClick={handleOpen}>
                             <Link href={item.path} className="text-center uppercase tracking-widest text-black text-[16px] py-2 font-apple-system font-semibold hover:text-gray-800 transition-all w-full">
                                 {item.name}
                             </Link>
@@ -102,6 +106,7 @@ export default function NavbarDefault({
                 <PageMenu
                     open={open}
                     listMenu={listMenu}
+                    handleOpen={handleOpen}
                 />
             </div>
         </div>

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "tailwind": "tailwindcss -i ./app/templates/default/index.css -o ./public/templates/default/style.css --watch",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3004",
     "lint": "next lint"
   },
   "dependencies": {
