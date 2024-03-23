@@ -81,7 +81,8 @@ function ProductPreview({
                         <img
                             key={i}
                             src={item.img}
-                            className="align-middle w-full overflow-clip object-cover"
+                            width={450}
+                            className="align-middle w-full object-contain"
                         />
                     ))}
                 </Carousel>

@@ -54,7 +54,7 @@ function Cart() {
                     placeholder=""
                     onPointerEnterCapture=""
                     onPointerLeaveCapture=""
-                >1</Typography>
+                >2</Typography>
             </div>
         </div>
     )

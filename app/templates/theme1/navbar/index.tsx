@@ -19,10 +19,10 @@ type MenuBtnT = {
 
 function Logo() {
     return (
-        <Link href={"/"}>
+        <Link href={"/"} className="mr-8">
             <img
                 src="/logo.jpg"
-                className="max-w-[100px] mr-4"
+                className="max-w-[100px]"
             />
         </Link>
     )
@@ -37,14 +37,16 @@ function Cart() {
                 />
             </Link>
 
-            <div className="rounded-full flex justify-center items-center h-[1.25rem] w-[1.25rem] bg-black absolute right-[-7px] top-0">
-                <Typography
-                    className="text-white text-[0.6rem] mb-0"
-                    placeholder=""
-                    onPointerEnterCapture=""
-                    onPointerLeaveCapture=""
-                >1</Typography>
-            </div>
+            <Link href="/cart">
+                <div className="rounded-[3px] flex justify-center items-center px-[5px] py-[0.3px] bg-black absolute right-[-7px] bottom-[-8px]">
+                    <Typography
+                        className="text-white text-[0.7rem] mb-0 font-bold font-inter"
+                        placeholder=""
+                        onPointerEnterCapture=""
+                        onPointerLeaveCapture=""
+                    >2</Typography>
+                </div>
+            </Link>
         </div>
     )
 }

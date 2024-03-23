@@ -2,7 +2,7 @@
 
 import Container from "../components/container";
 import { ProuductT } from "../types/products";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { TemplateContext } from "../store/template";
 import DefaultProductsLayout from "../templates/default/products-layout";
 import ProductsLayoutTheme1 from "../templates/theme1/products-layout";
@@ -120,6 +120,14 @@ export default function Products() {
             setPage(page + 1)
         }
     }
+
+    useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }, [])
 
     return (
         <Container>

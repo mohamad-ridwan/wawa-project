@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import Container from "@/app/components/container";
 import { TemplateContext } from "@/app/store/template";
 import DefaultCategory from "@/app/templates/default/category-layout";
@@ -116,6 +116,14 @@ export default function Category() {
             path: '/products/combo-skincare-set'
         },
     ]
+    
+    useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }, [])
 
     return (
         <Container>

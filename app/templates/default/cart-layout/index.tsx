@@ -156,7 +156,9 @@ export default function DefaultCart({
                             labelProps={{
                                 className: "hidden",
                             }}
-                            className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-sm h-[120px] w-[22rem]"
+                            className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-sm h-[120px] w-[22rem] min-w-[22rem] resize-y"
+                            value=""
+                            onChange={()=>{}}
                         />
 
                         <Typography
@@ -169,7 +171,7 @@ export default function DefaultCart({
                         </Typography>
                     </div>
 
-                    <div className="flex flex-wrap space-x-1">
+                    <div className="flex flex-wrap gap-1">
                         <Button
                             variant="outlined"
                             placeholder=""

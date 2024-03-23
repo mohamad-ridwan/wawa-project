@@ -25,23 +25,23 @@ export default function ProductDetail() {
             name: 'product1',
         },
         {
-            img: 'https://img.shoppegram.com/photo_2023_11_11_14_xzclpezugq467tfgoafn_180x.jpeg',
+            img: 'https://img.shoppegram.com/photo_2023_11_11_14_cj2dstcp0ovo91htf2b2_1080x.jpeg',
             name: 'product2',
         },
         {
-            img: 'https://img.shoppegram.com/photo_2023_11_14_11_dwjeudspgxqaoqc3pe1q_180x.jpeg',
+            img: 'https://img.shoppegram.com/photo_2023_11_14_11_dwjeudspgxqaoqc3pe1q_1080x.jpeg',
             name: 'product3',
         },
         {
-            img: 'https://img.shoppegram.com/photo_2023_11_18_09_hdsahjsqrownfo6nqgp2_180x.jpeg',
+            img: 'https://img.shoppegram.com/photo_2023_11_18_09_hdsahjsqrownfo6nqgp2_1080x.jpeg',
             name: 'product4',
         },
         {
-            img: 'https://img.shoppegram.com/photo_2023_11_18_09_hdsahjsqrownfo6nqgp2_180x.jpeg',
+            img: 'https://img.shoppegram.com/photo_2023_11_18_09_hdsahjsqrownfo6nqgp2_1080x.jpeg',
             name: 'product4',
         },
         {
-            img: 'https://img.shoppegram.com/photo_2023_11_18_09_hdsahjsqrownfo6nqgp2_180x.jpeg',
+            img: 'https://img.shoppegram.com/photo_2023_11_18_09_hdsahjsqrownfo6nqgp2_1080x.jpeg',
             name: 'product4',
         },
     ])
@@ -103,6 +103,14 @@ export default function ProductDetail() {
             })
         }
     }, [templateContext])
+
+    useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }, [])
 
     return (
         <Container>

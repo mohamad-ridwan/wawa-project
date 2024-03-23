@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { TemplateContext } from "../store/template"
 import DefaultCart from "../templates/default/cart-layout"
 import Container from "../components/container"
@@ -29,6 +29,14 @@ export default function Cart() {
             variant: 'NATURAL'
         },
     ])
+
+    useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }, [])
 
     return (
         <>
