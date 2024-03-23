@@ -27,7 +27,7 @@ function TableHead() {
                         placeholder=""
                         onPointerEnterCapture=""
                         onPointerLeaveCapture=""
-                        className="font-apple-system font-bold"
+                        className="font-apple-system font-bold mb-0"
                     >
                         {item.name}
                     </Typography>
@@ -67,7 +67,7 @@ function TableRows({
                                         placeholder=""
                                         onPointerEnterCapture=""
                                         onPointerLeaveCapture=""
-                                        className="font-apple-system font-normal text-start hover:opacity-[0.96] transition-all"
+                                        className="font-apple-system font-normal text-start hover:opacity-[0.96] transition-all mb-0"
                                     >
                                         {item.name}
                                     </Typography>
@@ -99,7 +99,7 @@ function TableRows({
                             placeholder=""
                             onPointerEnterCapture=""
                             onPointerLeaveCapture=""
-                            className="font-apple-system font-normal"
+                            className="font-apple-system font-normal mb-0"
                         >
                             {item.total}
                         </Typography>
@@ -153,10 +153,11 @@ export default function DefaultCart({
                             onPointerEnterCapture=""
                             onPointerLeaveCapture=""
                             rows={2}
+                            resize
                             labelProps={{
                                 className: "hidden",
                             }}
-                            className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-sm h-[120px] w-[22rem] min-w-[22rem] resize-y"
+                            className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-sm h-[120px] w-[22rem] min-w-[22rem] resize-y transition-none"
                             value=""
                             onChange={()=>{}}
                         />

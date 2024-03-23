@@ -142,7 +142,7 @@ function ProductContent({
                     placeholder=""
                     onPointerEnterCapture=""
                     onPointerLeaveCapture=""
-                    className="text-center font-light font-inter mt-4 line-through mr-2 tracking-widest text-lg"
+                    className="text-center font-light font-inter mt-4 line-through mr-2 tracking-widest text-lg mb-0"
                 >
                     {discount}
                 </Typography>
@@ -150,7 +150,7 @@ function ProductContent({
                     placeholder=""
                     onPointerEnterCapture=""
                     onPointerLeaveCapture=""
-                    className="text-center font-light font-inter mt-4 text-[#FF0000] tracking-widest text-lg"
+                    className="text-center font-light font-inter mt-4 text-[#FF0000] tracking-widest text-lg mb-0"
                 >
                     {price}
                 </Typography>
