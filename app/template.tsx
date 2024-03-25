@@ -49,11 +49,9 @@ export default function Template({children}: Props){
 
     useEffect(()=>{
         if(data.result){
-            // templateContext.setTemplateName(data.data[0].templateDir)
-            templateContext.setTemplateName('theme1')
+            templateContext.setTemplateName(data.data[0].templateDir)
     
-            // setBody(data.data[0].templateDir)
-            setBody('theme1')
+            setBody(data.data[0].templateDir)
         }
         // else{
         //     templateContext.setTemplateName('default')

@@ -5,6 +5,7 @@ import Container from "@/app/components/container";
 import { CartsT } from "@/app/types/cart";
 import { Button, Input, Textarea, Typography } from "@material-tailwind/react";
 import Link from "next/link";
+import { CldImage } from "next-cloudinary"
 
 function TableHead() {
     const tHead = [
@@ -53,6 +54,14 @@ function TableRows({
                     <td className="p-3">
                         <div className="flex items-center space-x-8">
                             <Link href={item.path as string}>
+                                {/* <CldImage
+                                    deliveryType="fetch"
+                                    src={item.img}
+                                    alt=""
+                                    width={100}
+                                    height={100}
+                                    className="object-cover max-w-[100px]"
+                                /> */}
                                 <img
                                     src={item.img}
                                     alt=""
