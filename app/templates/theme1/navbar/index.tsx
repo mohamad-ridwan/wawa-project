@@ -23,6 +23,9 @@ function Logo() {
             <img
                 src="/logo.jpg"
                 className="max-w-[100px]"
+                alt="wawacosmetics"
+                height={100}
+                width={100}
             />
         </Link>
     )

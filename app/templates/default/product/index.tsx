@@ -26,7 +26,6 @@ export default function DefaultProduct({
                 className="max-w-full max-h-full"
                 height={250}
                 width={250}
-                loading="lazy"
             />
             <div className="text-center mt-4 hover:text-gray-800 transition-all text-black">
                 <Typography

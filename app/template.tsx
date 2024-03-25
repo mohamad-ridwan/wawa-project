@@ -29,16 +29,37 @@ export default function Template({children}: Props){
         getTemplate()
     }, [])
 
+    // function setHead():void{
+    //     let linkGoogleAPI = document.createElement('link')
+    //     linkGoogleAPI.href = 'https://fonts.googleapis.com'
+    //     linkGoogleAPI.rel = 'preconnect'
+
+    //     let linkGSStatic = document.createElement('link')
+    //     linkGSStatic.href = 'https://fonts.gstatic.com'
+    //     linkGSStatic.rel = 'preconnect'
+
+    //     let linkFont = document.createElement('link')
+    //     linkFont.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'
+    //     linkFont.rel = 'stylesheet'
+
+    //     document.head.appendChild(linkGoogleAPI)
+    //     document.head.appendChild(linkGSStatic)
+    //     document.head.appendChild(linkFont)
+    // }
+
     useEffect(()=>{
         if(data.result){
-            templateContext.setTemplateName(data.data[0].templateDir)
+            // templateContext.setTemplateName(data.data[0].templateDir)
+            templateContext.setTemplateName('theme1')
     
-            setBody(data.data[0].templateDir)
-        }else{
-            templateContext.setTemplateName('default')
-    
-            setBody('default')
+            // setBody(data.data[0].templateDir)
+            setBody('theme1')
         }
+        // else{
+        //     templateContext.setTemplateName('default')
+    
+        //     setBody('default')
+        // }
     }, [data])
 
     return(

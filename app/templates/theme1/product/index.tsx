@@ -23,8 +23,10 @@ export default function ProductTheme1({
             <div className={`${bgImg} h-[390px] w-full`}>
                 <img
                     src={img}
-                    alt=""
+                    alt="product wawacosmetics"
                     className="h-full w-full object-contain"
+                    height={390}
+                    width={390}
                 />
             </div>
             <div className="flex justify-between space-x-2 text-[#171717] my-2">

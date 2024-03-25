@@ -74,6 +74,7 @@ function SelectCurrency({
                 label="Select Currency"
                 className="!border !border-gray-300 bg-white text-gray-900 ring-4 ring-transparent placeholder:text-[#737373] placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 font-inter font-normal"
                 labelProps={{ className: 'hidden' }}
+                value="AUD"
             >
                 {currencys.map((item, i) => (
                     <Option key={i} className="list-none">{item.name}</Option>

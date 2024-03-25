@@ -81,7 +81,9 @@ function ProductPreview({
                         <img
                             key={i}
                             src={item.img}
-                            width={450}
+                            alt="detail-product wawacosmetics"
+                            height={500}
+                            width={500}
                             className="align-middle w-full object-contain"
                         />
                     ))}
@@ -92,8 +94,10 @@ function ProductPreview({
                     <button key={i}>
                         <img
                             src={item.img}
-                            alt=""
+                            alt="product variant wawacosmetics"
                             className="align-middle max-w-full max-h-full"
+                            height={80}
+                            width={80}
                         />
                     </button>
                 ))}

@@ -108,7 +108,9 @@ export default function ProductDetailTheme1({
         <div className="grid grid-cols-2 gap-8 pb-8">
             <img
                 src={img}
-                alt=""
+                alt="product detail wawacosmetics"
+                height={500}
+                width={500}
             />
 
             <ProductContent
