@@ -78,6 +78,9 @@ export default function Banner({
                         <img
                             src={item.img}
                             className="max-h-[400px]"
+                            alt="banner-wawacosmetics"
+                            height={630}
+                            width={1200}
                         />
                     </Link>
                 ))}
